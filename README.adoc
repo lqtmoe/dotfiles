@@ -1,0 +1,9 @@
+= dotfiles
+Biwa <lqt@nyarkafka.jp>
+
+Biwa's configuration files.
+
+== 使い方
+[source, shell]
+$ cd path/to/dotfiles
+$ make install

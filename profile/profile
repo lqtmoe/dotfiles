@@ -1,0 +1,46 @@
+### Setup language
+if [ -n "$DISPLAY" ]; then  # X11
+  export LANG=ja_JP.UTF-8
+elif [ "$TERM" != "linux" ]; then  # xterm, rxvt, kmscon, etc.
+  export LANG=ja_JP.UTF-8
+else # Linux console
+  export LANG=en_US.UTF-8
+fi
+export LC_COLLATE=C
+
+### Setup PATH
+# Rust
+export CARGO_HOME="$HOME/.cargo"
+# Nim
+export NIMBLE_DIR="$HOME/.nimble"
+# Go
+export GOPATH="$HOME/.go"
+# Deno
+export DENO_INSTALL="$HOME/.deno"
+# export PATH
+export PATH="$HOME/bin:$CARGO_HOME/bin:$NIMBLE_DIR/bin:$GOPATH/bin:$DENO_INSTALL/bin:$PATH"
+
+### Application settings
+# Java
+export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+# Libvirt
+export LIBVIRT_DEFAULT_URI="qemu:///system"
+
+### Editor settings
+if [ -n "$DISPLAY" ]; then  # X11
+  if which gvim > /dev/null 2>&1; then
+    export EDITOR=gvim\ -f
+  elif which vim > /dev/null 2>&1; then
+    export EDITOR=vim
+  else
+    export EDITOR=vi
+  fi
+else # Console
+  if which vim > /dev/null 2>&1; then
+    export EDITOR=vim
+  else
+    export EDITOR=vi
+  fi
+fi
+
+# vi: set et sw=2 ft=sh:

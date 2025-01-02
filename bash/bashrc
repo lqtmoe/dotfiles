@@ -1,0 +1,7 @@
+# set PS1
+export PS1='\w\$ '
+
+# load bash_completion
+if [ -e /etc/profile.d/bash_completion.sh ]; then
+  . /etc/profile.d/bash_completion.sh
+fi
