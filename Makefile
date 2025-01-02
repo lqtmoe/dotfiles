@@ -1,4 +1,4 @@
-SUBDIRS := profile bash
+SUBDIRS := profile bash user-dirs
 
 all: install
 
